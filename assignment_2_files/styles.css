@@ -1,0 +1,403 @@
+/* CSS rules to be when on desktop mode */
+
+
+
+/* CSS rules to be aplied to the page's body */
+body {
+    background: linear-gradient(to bottom right, rgb(190, 186, 186), rgba(0, 170, 255, 0.404));
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+
+/* CSS rules to be applied to the page's introductory div */
+#introductoryDiv {
+    height: 70px;
+    text-align: center;
+    vertical-align: middle;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 5%;
+    background-color: lightskyblue;
+    border-style: ridge;
+    border-color: black;
+    background-image: url("https://d4804za1f1gw.cloudfront.net/wp-content/uploads/sites/50/2018/11/hero.jpg");
+    background-position: center;
+    background-size: cover;
+    opacity: 60%;
+}
+
+
+/* CSS rules to applied upon the navigation links (ASSIGNMENT 1)
+#navigationLinks{
+    position: relative;
+    top: 50%;
+    text-align: center;
+    font-weight: 1000;
+}
+
+#navigationLinks a:link {
+    color: black;
+}
+
+#navigationLinks a:visited {
+    color: purple;
+}
+
+#navigationLinks a:hover {
+    color: red;
+}
+*/
+
+
+/* First header CSS rules to be applied */
+h1 {
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    page-break-before: avoid;
+}
+
+
+/* Second header CSS rules to be applied */
+h2 {
+    text-align: center;
+    color: darkgreen;
+    page-break-before: avoid;
+}
+
+
+/* CSS rules to be applied to the author table containers */
+table{
+    height: 60%;
+    width: 100%;
+    border: 1px solid brown;
+    border-radius: 15px;
+    table-layout: fixed;
+    border-spacing: 2px;
+}
+
+
+/* CSS rules to be applied to the table's first cell */
+table tbody tr > *:nth-child(1) {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* CSS rules to be applied to the table's 2nd, 3rd and 4th cells */
+table tbody tr > *:nth-child(2),
+table tbody tr > *:nth-child(3),
+table tbody tr > *:nth-child(4) {
+    width: 100%;
+    text-align: center;
+}
+
+
+/* CSS rules to be applied to the table's 5th cell */
+table tbody tr > *:nth-child(5) {
+    width: 100%;
+}
+
+
+/* CSS rules to be applied to table's containing data */
+td {
+    border: 1px solid brown;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+}
+
+
+/* CSS rules to be applied on the table's headers */
+th {
+    border: 5px solid goldenrod;
+    text-transform: uppercase;
+    border-style: double;
+    border-radius: 15px;
+    border-width: 10px;
+}
+
+
+/* Shorthand margin property */
+figure {
+    margin: 10px 10px 10px 10px;
+}
+
+
+/* CSS rules to be applied on the paragraph elements */
+p {
+    text-indent: 10%;
+    font-variant: small-caps;
+}
+
+
+/* CSS rules to be applied on the image elements */
+img {
+    height: auto;
+    width: 100%;
+    float: left;
+}
+
+
+img:hover {
+    border-style: ridge;
+    border-color: yellow;
+}
+
+
+.form_input:focus {
+    background-color: gold;
+}
+
+
+/* CSS rules to be applied on the table's caption */
+caption {
+    caption-side: top;
+}
+
+
+/* Another shorthand use upon the list property */
+ol {
+    list-style: upper-roman inside;
+    /*
+    list-style-type: upper-roman;
+    list-style-position: inside;
+    */
+}
+
+
+/* CSS rules to be applied upon unordered lists */
+ul {
+    list-style-position: outside;
+    list-style-image: url("https://icons.iconarchive.com/icons/raindropmemory/down-to-earth/32/G12-Book-4-icon.png");
+}
+
+
+/* CSS rules to be applied upon em elements */
+em {
+    text-decoration: underline;
+}
+
+
+/* Improving the submission form button */
+.button {
+    padding: 20px 20px;
+    font-size: small;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    margin-bottom: 10px;
+    font-style: oblique;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* CSS rules to be applied upon the browser report section */
+#browserReport {
+    margin-top: 60px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+
+/* CSS rules to be applied upon the page's footer */
+footer {
+    margin-left: 30%;
+    margin-right: 30%;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+} 
+
+
+/* The displayed color will change to salmon as soon as the user attempts to contact any of the creators */
+.mail:active {
+    color: salmon;
+}
+
+
+/* Background-repeat being used underneath the Web Technology lab group identifier */
+#webTechnology {
+    background-image: url("https://icons.iconarchive.com/icons/robinweatherall/library/32/books-icon.png");
+    background-repeat: repeat;
+    color: yellow;
+    text-align: center;
+}
+
+
+/* CSS rules to be applied to the first cell of the author submission modal */
+#authorModal > div > table > tbody > tr > td:nth-child(1) {
+    width: 100%;  
+}
+
+
+/* CSS rules to be applied to the whole author submission modal */
+#authorForm {
+    text-align: center;
+}
+
+
+
+/* Modal styling: Based on https://www.w3schools.com/howto/howto_css_modals.asp
+Adapted according to the webpage styling necessities */
+
+
+/* Modal background styling */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+  
+/* Modal content box */
+.modalContent {
+background-color: #fefefe;
+margin: 15% auto; /* 15% from the top and centered */
+padding: 20px;
+border: 1px solid #888;
+width: 80%; 
+}
+
+
+/* Close button styling */
+.button {
+color: white;
+/* float: right; */
+/* font-size: 28px; */
+font-weight: bold;
+}
+
+
+/* Close button hover and focus event styling */
+.button:hover,
+.button:focus {
+color: black;
+text-decoration: none;
+cursor: pointer;
+}
+
+
+
+/* CSS rules to be applied when printing */
+
+@media print {
+
+    @page {
+        size: landscape;
+    }
+
+    p {
+        orphans: 3;
+        widows: 3;
+    }
+
+    table {
+        page-break-before: always;
+        page-break-after: always;
+    }
+
+
+    tr {
+        page-break-after: always;
+    }
+
+    tr:first {
+        page-break-after: avoid;
+    }
+
+    body {
+        font-size: 10pt;
+        font-family: sans-serif;
+    }
+}
+
+
+
+/* CSS media query rules to smaller devices */
+
+@media screen and (max-width: 1300px) {
+    
+    thead {     /* The table headers will no longer be displayed as the table content will be displayed linewise */
+        display: none;
+    }
+    
+    th, td {
+        border-right: none;
+    }
+
+    td {    /* The table data will be displayed as a block occupying the full possible width */
+        display: block;
+        width: 100%;
+    }
+    
+    tr:not(:last-of-type) td {
+        overflow: hidden;
+    }
+    
+    tr:not(:last-of-type) td::before {
+        float: right;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: var(--cell-padding);
+        margin-left: var(--cell-padding);
+        width: 100%;
+    }
+    
+    tr > td:last-of-type {  /* The separator between authors will be a double line */
+        border-bottom-style: double;
+    }
+
+    input {
+        width: 50%;
+    }
+
+    textarea {
+        width: 100%;
+    }
+
+    ol {
+        padding-left: 5px;
+    }
+
+    figure {
+        margin: 1px !important; 
+        padding: 1px;
+    }
+}
+
+
+
+/* CSS media query rules to devices no larger than 320x480 */
+
+@media screen and (max-width: 320px) and (max-height: 480px) {
+
+    h1 {
+        font-size: 5pt;
+    }
+
+    h2 {
+        font-size: 4pt;
+    }
+
+    body {
+        font-size: smaller;
+        background-color: red;
+    }
+}

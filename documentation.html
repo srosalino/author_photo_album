@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 009 API Documentation</title>
+    <!-- jquery is only used for styles -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <style>
+
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .attribute {
+            font-weight: bold;
+        }
+
+        li {
+            padding-bottom: 10px;
+        }
+
+        figure {
+            border-style: double;
+        }
+
+        pre {
+            background-color: ghostwhite;
+            border: 1px solid silver;
+            padding: 10px 20px;
+            margin: 20px;
+        }
+
+        .json-key {
+            color: brown;
+        }
+
+        .json-value {
+            color: navy;
+        }
+
+        .json-string {
+            color: olive;
+        }
+
+        code {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+    </style>
+
+
+</head>
+
+<body>
+
+    <h1>Lab 009 API Documentation</h1>
+    <h2>Made by: Sebastião Rosalino</h2>
+
+    <figure id="author">
+
+        <figcaption>Author object complete description</figcaption>
+
+        <ul>
+            <li>
+                <div class="attribute">ID: integer number</div>
+                <div class="attributeDescription">The author's unique identifier.</div>
+            </li>
+
+            <li>
+                <div class="attribute">Author: string (maximum length: 100 characters)</div>
+                <div class="attributeDescription">The author's name.</div>
+            </li>
+
+            <li>
+                <div class="attribute">Alt: string (maximum length: 100 characters)</div>
+                <div class="attributeDescription">Information about the author's image.</div>
+            </li>
+
+            <li>
+                <div class="attribute">Tags: string (maximum length: 256 characters)</div>
+                <div class="attributeDescription">Comma separated list of words with respect to the author.</div>
+            </li>
+
+            <li>
+                <div class="attribute">Image: string (maximum length: 2048 characters)</div>
+                <div class="attributeDescription">URL representing the author's image</div>
+            </li>
+
+            <li>
+                <div class="attribute">Description: string (maximum length: 1024 characters)</div>
+                <div class="attributeDescription">Description of the author's biography.</div>
+            </li>
+        </ul>
+
+    </figure>
+
+    <br>
+
+    <figure class="endpoint">
+
+        <figcaption>Documentation section to retrieve all the authors in the photo database</figcaption>
+
+        <ul>
+
+            <li>
+                <div class="endpoint">Endpoint: /</div>
+            </li>
+
+            <li>
+                <div class="method">HTTP Method: GET</div>
+            </li>
+
+            <li>
+                <div class="content-type">Response Content-Type: application/json; charset=utf-8</div>
+            </li>
+        
+            <li>
+                <div class="description">Functionality: Returns all the <a href="#author">authors</a> available.</div>
+            </li>
+
+            <li>
+                <div class="example">Output example:</div>
+                <div>
+                    <pre><code id="exampleGETAllAuthors"></code></pre>
+                </div>   
+            </li>
+        
+            <li>
+                <div class="responseCodes">HTTP response codes:</div>
+                <div>
+                    <ul>
+                        <li>200 OK</li>
+                        <li>500 Internal Server Error</li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+
+    </figure>
+        
+    <br>
+
+    <figure class="endpoint">
+
+        <figcaption>Documentation section to create a new author</figcaption>
+
+        <ul>
+
+            <li>
+                <div class="endpoint">Endpoint: /</div>
+            </li>
+
+            <li>
+                <div class="method">HTTP Method: POST</div>
+            </li>
+
+            <li>
+                <div class="requestBody">Required parameters: An <a href="#author">author</a> partial object (all attributes, except the [id], 
+                    which is generated automatically).</div>
+            </li>
+
+            <li>
+                <div class="content-type">Request/Response Content-Types: application/json; charset=utf-8</div>
+            </li>
+
+            <li>
+                <div class="description">Functionality: Stores a new <a href="#author">author</a> object.</div>
+            </li>
+
+            <li>
+                <div class="example">Input example:</div>
+                <div>
+                    <pre><code id="inputPOSTExample"></code></pre>
+                <div class="example">Output example:</div>
+                    <pre><code id="outputPOSTExample"></code></pre>
+                </div>
+            </li>
+
+            <li>
+                <div class="responseCodes">HTTP response codes:</div>
+                <div>
+                    <ul>
+                        <li>400 Bad Request</li>
+                        <li>500 Internal Server Error</li>
+                        <li>200 OK</li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+
+    </figure>
+
+    <br>
+      
+    <figure class="endpoint">
+
+        <figcaption>Documentation section to reset the database to its original state</figcaption>
+
+        <ul>
+
+            <li>
+                <div class="endpoint">Endpoint: /reset</div>
+            </li>
+
+            <li>
+                <div class="method">HTTP Method: GET</div>
+            </li>
+
+            <li>
+                <div class="content-type">Response Content-Type: text/html; charset=utf-8</div>
+            </li>
+
+            <li>
+                <div class="description">Functionality: Restores the database to its original state.</div>
+            </li>
+
+            <li>
+                <div class="example">Output example:</div>
+                    <div>
+                        <pre><code id="exampleResetDb"></code></pre>
+                    </div>
+            </li>
+
+            <li>
+                <div class="responseCodes">HTTP response codes:</div>
+                <div>
+                    <ul>
+                        <li>200 OK</li>
+                        <li>500 Internal Server Error</li>
+                    </ul>
+                </div>
+            </li>
+
+        </ul>
+        
+    </figure>
+
+    <br>
+
+    <figure class="endpoint">
+
+        <figcaption>Documentation section to retrieve a specific author</figcaption>
+
+        <ul>
+
+            <li>
+                <div class="endpoint">Endpoint: /[id]</div>
+            </li>
+
+            <li>
+                <div class="method">HTTP Method: GET</div>
+            </li>
+
+            <li>
+                <div class="parameters">Required parameters: id (integer)</div>
+            </li>
+
+            <li>
+                <div class="content-type">Response Content-Type: application/json; charset=utf-8</div>
+            </li>
+
+            <li>
+                <div class="description">Functionality: Returns the <a href="#author">author</a> matching the given id if it exists.</div>
+            </li>
+
+            <li>
+                <div class="example">Output example:</div>
+                    <div>
+                        <pre><code id="exampleGETAnAuthor"></code></pre>
+                    </div>
+            </li>
+
+            <li>
+                <div class="responseCodes">HTTP response codes:</div>
+                <div>
+                    <ul>
+                        <li>200 OK</li>
+                        <li>404 Author Not Found</li>
+                        <li>500 Internal Server Error</li>
+                    </ul>
+                </div>
+            </li>
+
+        </ul>
+
+    </figure>
+    
+    <br>
+
+    <figure class="endpoint">
+
+        <figcaption>Documentation section to update a specific author's data</figcaption>
+
+        <ul>
+
+            <li>
+                <div class="endpoint">Endpoint: /[id]</div>
+            </li>
+
+            <li>
+                <div class="method">HTTP Method: PUT</div>
+            </li>
+
+            <li>
+                <div class="parameters">Required parameters: An <a href="#author">author</a> object (all attributes, except the id,
+                    which is given in the URL).</div>
+            </li>
+
+            <li>
+                <div class="content-type">Request/Response Content-Type: application/json; charset=utf-8</div>
+            </li>
+
+            <li>
+                <div class="description">Functionality: Returns the updated <a href="#author">author</a> matching the given id if it exists.</div>
+            </li>
+
+            <li>
+                <div class="example">Input example:</div>
+                    <div>
+                        <pre><code id="examplePUTinput"></code></pre>
+                    </div>
+            </li>
+
+            <li>
+                <div class="example">Output example:</div>
+                    <div>
+                        <pre><code id="examplePUToutput"></code></pre>
+                    </div>
+            </li>
+
+            <li>
+                <div class="responseCodes">HTTP response codes:</div>
+                <div>
+                    <ul>
+                        <li>500 Internal Server Error</li>
+                        <li>404 Author Not Found</li>
+                        <li>400 Malformed Request</li>
+                        <li>200 OK</li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+
+    </figure>
+
+    <br>
+
+    <figure class="endpoint">
+
+        <figcaption>Documentation section to delete a specific author's data</figcaption>
+
+        <ul>
+
+            <li>
+                <div class="endpoint">Endpoint: /[id]</div>
+            </li>
+
+            <li>
+                <div class="method">HTTP Method: DEL</div>
+            </li>
+
+            <li>
+                <div class="parameters">Required parameters: id (integer)</div>
+            </li>
+
+            <li>
+                <div class="content-type">Response Content-Type: application/json; charset=utf-8</div>
+            </li>
+
+            <li>
+                <div class="description">Description: Deletes the <a href="#author">author</a> matching the given id if it exists.</div>
+            </li>
+
+            <li>
+                <div class="example">Output example:</div>
+                    <div>
+                        <pre><code id="exampleDeleteAnAuthor"></code></pre>
+                    </div>
+            </li>
+
+            <li>
+                <div class="responseCodes">Response Codes:</div>
+                <div>
+                    <ul>
+                        <li>200 OK</li>
+                        <li>404 Author Not Found</li>
+                        <li>500 Internal Server Error</li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+
+    </figure>
+
+</body>
+
+
+<script>
+
+    if (!library)
+        var library = {};
+
+    library.json = {
+        replacer: function (match, pIndent, pKey, pVal, pEnd) {
+            var key = '<span class=json-key>';
+            var val = '<span class=json-value>';
+            var str = '<span class=json-string>';
+            var r = pIndent || '';
+            if (pKey)
+                r = r + key + pKey.replace(/[": ]/g, '') + '</span>: ';
+            if (pVal)
+                r = r + (pVal[0] == '"' ? str : val) + pVal + '</span>';
+            return r + (pEnd || '');
+        },
+        prettyPrint: function (obj) {
+            var jsonLine = /^( *)("[\w]+": )?("[^"]*"|[\w.+-]*)?([,[{])?$/mg;
+            return JSON.stringify(obj, null, 3)
+                .replace(/&/g, '&amp;').replace(/\\"/g, '&quot;')
+                .replace(/</g, '&lt;').replace(/>/g, '&gt;')
+                .replace(jsonLine, library.json.replacer);
+        }
+    };
+
+    var exampleGETAllAuthors = [
+        {
+            "id": 1,
+            "author": "Tim Berners-Lee",
+            "alt": "Image of Berners-Lee",
+            "tags": "html,http,url,cern,mit",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Sir_Tim_Berners-Lee.jpg",
+            "description": "The internet and the Web aren't the same thing."
+        },
+        {
+            "id": 2,
+            "author": "Grace Hopper",
+            "alt": "Image of Grace Hopper at the UNIVAC I console",
+            "tags": "programming,linking,navy",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/3/37/Grace_Hopper_and_UNIVAC.jpg",
+            "description": "Grace was very curious as a child; this was a lifelong trait. At the age of seven, she decided to determine how an alarm clock worked and dismantled seven alarm clocks before her mother realized what she was doing (she was then limited to one clock)."
+        }
+    ];
+    $('#exampleGETAllAuthors').html(library.json.prettyPrint(exampleGETAllAuthors));
+
+    var inputPOSTExample =
+    {
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/L.N.Tolstoy_Prokudin-Gorsky.jpg/300px-L.N.Tolstoy_Prokudin-Gorsky.jpg",
+        "author": "Lev Tolstoy",
+        "alt": "Lev Tolstoy Image",
+        "tags": "russian, writer",
+        "description": "Lev Tolstoy description"
+    };
+    $('#inputPOSTExample').html(library.json.prettyPrint(inputPOSTExample));
+
+    var outputPOSTExample =
+    {
+        "id": 4
+    };
+    $('#outputPOSTExample').html(library.json.prettyPrint(outputPOSTExample));
+
+    var exampleResetDb = "Database successfully reseted.";
+    $('#exampleResetDb').html(exampleResetDb);
+
+    var exampleGETAnAuthor = [
+        {
+            "id": 2,
+            "author": "Grace Hopper",
+            "alt": "Image of Grace Hopper at the UNIVAC I console",
+            "tags": "programming,linking,navy",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/3/37/Grace_Hopper_and_UNIVAC.jpg",
+            "description": "Grace was very curious as a child; this was a lifelong trait. At the age of seven, she decided to determine how an alarm clock worked and dismantled seven alarm clocks before her mother realized what she was doing (she was then limited to one clock)."
+        }
+    ];
+    $('#exampleGETAnAuthor').html(library.json.prettyPrint(exampleGETAnAuthor));
+
+    var exampleDeleteAnAuthor = "Author deleted successfully.";
+    $('#exampleDeleteAnAuthor').html(exampleDeleteAnAuthor);
+
+    var examplePUTinput = 
+    {
+        "image":"https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Cristiano_Ronaldo_WC2022_-_01.jpg/330px-Cristiano_Ronaldo_WC2022_-_01.jpg",
+        "author":"Updated author",
+        "alt":"Updated alt",
+        "tags":"Updated tags",
+        "description":"Updated description"
+    };
+    $('#examplePUTinput').html(library.json.prettyPrint(examplePUTinput));
+
+    var examplePUToutput = 
+    {
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Cristiano_Ronaldo_WC2022_-_01.jpg/330px-Cristiano_Ronaldo_WC2022_-_01.jpg",
+    "author": "Updated author",
+    "alt": "Updated alt",
+    "tags": "Updated tags",
+    "description": "Updated description",
+    "id": 1
+    };
+    $('#examplePUToutput').html(library.json.prettyPrint(examplePUToutput));
+
+</script>

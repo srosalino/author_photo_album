@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head> <!-- Information about the page, including the title, metainformation and the CSS style file to be applied -->
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo album</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+    <div id="introductoryDiv">  <!-- Page's introductory div -->
+        <h1><em>ONLINE ALBUM</em></h1>
+    </div>
+
+
+    <h1>Welcome to the photo album of famous writers!</h1> <!-- Introduction to the purpose of the page -->
+
+    <section> <!-- Beginning of the form/table section -->
+
+        <!-- Brief introduction to the purpose of the following table -->
+        <h2>This is a photo album that collects the photos and biographics along with their best-sellers of many famous
+            writers. This project is an ongoing process and we would love your input!
+        </h2>
+
+
+        <div id="authorFilterContainer"> <!-- Filter album by author option menu -->
+            <label for="authorToDisplay">Filter by author</label>
+            <select name="authorToDisplay" id="authorToDisplay">
+                <option value="-1">Show all gallery</option> <!-- Unfiltering option -->
+            </select>
+        </div>
+
+        <form id="authorForm">
+
+            <table id="mainTable">
+
+                <caption>Photo album</caption> <!-- Table caption -->
+
+
+                <thead> <!-- First table row containing the headers -->
+                    <tr>
+                        <th>image</th>
+                        <th>author</th>
+                        <th>alt</th>
+                        <th>tags</th>
+                        <th>description</th>
+                        <th>ID</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <!-- At first the table body of the main table will be empty, as soon as new authors are added it will host the new data -->
+                </tbody>
+
+            </table>
+
+
+            <!-- Modal construction: Based on https://www.w3schools.com/howto/howto_css_modals.asp -->
+            <!-- Adapted according to the webpage structure -->
+            <button id="modalButton" class="button">Add author/reset album</button> <!-- Form modal opening button -->
+            <button id="modalUpdateButton" class="button">Update/remove author</button> <!-- Update/remove modal opening button -->
+
+            <div id="authorModal" class="modal"> <!-- Modal hosting the form for new author submission -->
+
+                <div class="modalContent">
+                    <table>
+                        <tr> <!-- Form dedicated row -->
+
+                            <td> <!-- Input field for the image URL -->
+                                <label for="image">Insert author image:</label>
+                                <input class="form_input" type="url" id="image" name="image" required
+                                    placeholder="Insert a public URL">
+                            </td>
+
+                            <td> <!-- Input text field for the author name -->
+                                <label for="author">Insert author name:</label>
+                                <input class="form_input" type="text" id="author" name="author" required>
+                            </td>
+
+                            <td> <!-- Input text field for the author alt -->
+                                <label for="alt">Insert author Alt:</label>
+                                <input class="form_input" type="text" id="alt" name="alt" required>
+                            </td>
+
+                            <td> <!-- Input text field for the author tags -->
+                                <label for="tags">Insert author tags:</label>
+                                <input class="form_input" type="text" id="tags" name="tags" required>
+                            </td>
+
+                            <td> <!-- Input text-area field for the author description -->
+                                <label for="description">Insert author description:</label><br>
+                                <textarea class="form_input" id="description" rows="10" cols="30" name="description"
+                                    required
+                                    placeholder="Insert a brief description of the author along with their best-sellers"></textarea>
+                                <br>
+                            </td>
+
+                        </tr>
+                    </table>
+
+                    <input type="button" value="Submit author" id="submitButton" class="button">
+                    <!-- Submit form button -->
+
+                    <input type="button" value="Reset" id="resetButton" class="button">
+                    <!-- Reset form button -->
+
+                    <button class="close button">Go back to gallery</button>
+                    <!-- Modal closing button -->
+
+                </div>
+
+            </div>
+
+            <div id="updateAuthorModal" class="modal"> <!-- Modal hosting the procedures for an author's update -->
+                
+                <div class="modalContent">
+    
+                    <table>
+
+                        <label for="updateId">Insert author's id:</label>   <!-- Input field requesting the author's ID to be updated -->
+                        <input class="form_input" type="number" id="updateId" name="updateId" required
+                            placeholder="Insert a valid ID">
+
+                        <tr>
+
+                            <td>
+                                <label for="updateImage">Insert author image:</label> <!-- Input field requesting the new image URL -->
+                                <input class="form_input" type="url" id="updateImage" name="updateImage" required
+                                    placeholder="Insert a public URL">
+                            </td>
+
+                            <td>
+                                <label for="updateAuthor">Insert author name:</label> <!-- Input field requesting the new author's name -->
+                                <input class="form_input" type="text" id="updateAuthor" name="updateAuthor" required
+                                placeholder="Insert a new valid name">
+                            </td>
+
+                            <td>
+                                <label for="updateAlt">Insert author alt:</label> <!-- Input field requesting the new author's alt -->
+                                <input class="form_input" type="text" id="updateAlt" name="updateAlt" required
+                                placeholder="Insert a new valid alt">
+                            </td>
+
+                            <td>
+                                <label for="updateTags">Insert author tags:</label> <!-- Input field requesting the new author's tags -->
+                                <input class="form_input" type="text" id="updateTags" name="updateTags" required
+                                placeholder="Insert new valid tags">
+                            </td>
+
+                            <td>
+                                <label for="updateDescription">Insert author description:</label><br> <!-- Input field requesting the new author's description -->
+                                <textarea class="form_input" id="updateDescription" rows="10" cols="30" name="updateDescription" required
+                                    placeholder="Insert a brief description of the author along with their best-sellers"></textarea>
+                                <br>
+                            </td>
+
+                        </tr>
+
+                    </table>
+
+                    <input type="button" value="Update author" id="updateButton" class="button"/> <!-- Update author button -->
+                    <button class="close button">Go back to gallery</button>    <!-- Return to gallery button -->
+                    <input type="button" value="Delete this author" id="deleteButton" class="button"/> <!-- Delete author button -->
+
+                </div>
+
+            </div>
+
+        </form>
+
+    </section>
+
+    <section id="browserReport"> <!-- Browser compatibility section -->
+
+        <h2>Browser Compatibility Report</h2>
+
+        <p>We tested this webpage on three different mainstream browsers: Chrome, Firefox, and Edge. All of them
+            rendered the webpage equally,
+            except when printing the page, where Chrome preserved the navigation links, while Edge and Firefox lost that
+            functionality.</p>
+
+    </section>
+
+    <footer> <!-- Page's footer including the author's contact and lab group information -->
+
+        <h3>Contact us</h3>
+
+        <div>Creator: Jie.Ren <a class="mail" href="mailto:j.ren2@student.vu.nl">j.ren2@student.vu.nl</a></div>
+
+        <div>Creator: Sebastião Rosalino <a class="mail"
+                href="mailto:s.m.inacio.rosalino@student.vu.nl">s.m.inacio.rosalino@student.vu.nl</a></div>
+
+        <br>
+
+        <div id="webTechnology">Web Technology Lab 7 &copy;</div>
+
+    </footer>
+
+</body>
+
+<script src="main.js" defer></script>  <!-- Reference to the JavaScript file -->
+
+</html>
